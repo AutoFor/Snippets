@@ -1,0 +1,15 @@
+{
+    "type": "message",
+    "text": "<at>ユーザー名</at> さん、こんにちは！",
+    "entities": [
+      {
+        "type": "mention",
+        "mentioned": {
+          "id": "ユーザーのID",
+          "name": "ユーザー名"
+        },
+        "text": "<at>ユーザー名</at>"
+      }
+    ]
+  }
+  

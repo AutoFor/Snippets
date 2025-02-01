@@ -1,0 +1,133 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="O365TeamsMention" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="832.8,692.8" sap2010:WorkflowViewState.IdRef="O365TeamsMention_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.C547B417FAE_normalisedminus_signteams_channels_messagesminus_signv2_Create.Bundle;assembly=C547B417FAE_normalis.HhMWSg9poQ1E5dq823yLml2" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>C547B417FAE_me_event.NZSuP32ML5K1CKN0B2Z7LUd2</AssemblyReference>
+      <AssemblyReference>C547B417FAE_normalis.zVzntx3VpH1fumnV2xYGXP3</AssemblyReference>
+      <AssemblyReference>C547B417FAE_individu.R1PLf21ofUC1w6FWE1zI1R24</AssemblyReference>
+      <AssemblyReference>C547B417FAE_normalis.HhMWSg9poQ1E5dq823yLml2</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="O365TeamsMention" sap:VirtualizedContainerService.HintSize="1934,879.3733333333332" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="textJson" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <isactr:ConnectorActivity Configuration="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" ConnectionId="a3215c79-0fe5-4630-8707-25547b417fae" DisplayName="Send Channel Message" sap:VirtualizedContainerService.HintSize="416,366" sap2010:WorkflowViewState.IdRef="ConnectorActivity_5" UiPathActivityTypeId="5db80592-ff66-39b4-b0f2-20bc9d93b7e4">
+      <isactr:ConnectorActivity.FieldObjects>
+        <isactr:FieldObject Name="team_id" Type="FieldArgument" />
+        <isactr:FieldObject Name="channel_id" Type="FieldArgument" />
+        <isactr:FieldObject Name="body_sub_content" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="_file" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="upr:IResource" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="attachmentIds_array" Type="FieldArgument" />
+        <isactr:FieldObject Name="out_id" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="x:String" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="out_webUrl" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="x:String" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="Jit_normalisedminus_signteams_channels_messagesminus_signv2" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="uiascb:normalisedminus_signteams_channels_messagesminus_signv2_Create" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+      </isactr:ConnectorActivity.FieldObjects>
+    </isactr:ConnectorActivity>
+  </Sequence>
+</Activity>

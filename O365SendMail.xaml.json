@@ -16,6 +16,18 @@
       "IsPrincipal": true,
       "ArgumentType": 1,
       "DataSourceItems": null
+    },
+    {
+      "Name": "ConnectorActivity_3_Connection0",
+      "DisplayName": "ConnectorActivity_3_uipath-microsoft-teams",
+      "Category": null,
+      "Tooltip": "すべてのチャンネルのリストを取得",
+      "Placeholder": null,
+      "Widget": "Connection",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 1,
+      "DataSourceItems": null
     }
   ]
 }

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="1546.4,1655.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="806.4,1809.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.C547B417FAE_teams_sub_channels_List.Bundle;assembly=C547B417FAE_teams_su.YRIQ94RybNJ1lLold3DUtBK2" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -41,6 +41,12 @@
       <x:String>UiPath.Platform</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C547B417FAE_teams_sub_channels_List.Bundle</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C547B417FAE_teams_sub_channels_List.Bundle</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -101,20 +107,39 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>C547B417FAE_normalis.9ncWg4D7i9N1CXkU22YvFEK2</AssemblyReference>
+      <AssemblyReference>C547B417FAE_teams_su.YRIQ94RybNJ1lLold3DUtBK2</AssemblyReference>
+      <AssemblyReference>Snippets.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="512,1550.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="484,1662" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="upr:IResource" Name="variable1" />
       <Variable x:TypeArguments="scg:IList(upr:IResource)" Name="AttachmentFiles" />
+      <Variable x:TypeArguments="uiascb:teams_sub_channels_List[]" Name="TeamsChannel" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CreateList x:TypeArguments="upr:IResource" DisplayName="リストを作成" sap:VirtualizedContainerService.HintSize="449.6,175.2" sap2010:WorkflowViewState.IdRef="CreateList`1_2" NewList="[AttachmentFiles]" />
-    <ui:ForEachFileX DisplayName="繰り返し (フォルダー内の各ファイル)" Folder="R:\Snippets\SampleTextFiles" sap:VirtualizedContainerService.HintSize="449.6,704" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <isactr:ConnectorActivity Configuration="H4sIAAAAAAAACsVWbW8bRRD+K6cTH20nTvNqKR9iJwG3TuPEbiuEqmh9N7avOd8eu3tJjGUp5xM0pIkQCBqBSkEgqETV8gEhlbf2v3TrUP4Fs3fntzgV+RAJxZG8Mzuzz8wzL27pqxbYJs9RRxDLAaZnWnoJCDPqpGJDpNQz791O6HnH9URf0NKvkwboGV0AaWxZpp7Qly3u2qQZy2Xgy+BPGXyrNMANZrnCog5qSmCDITRRB00Za1VGG+HJZNQ16a6jUaa5hPNInV9O4b9mEEergMZAMAt2wByYUU8gMo1WtZf7D94GoZWVWaWpKSQv979GAOWmqzBxtHVqeC5Quu25Ktb1yh0EMxQL76tvEttT0jC4IhF1/D4xekXZqWxEd8yhBNxuh2FbNYy49f8nIOYGoxDAFIbWENi2ltRaltkOwyJmtrkMVeLZQs8I5gHGTrkVQy8yq0FYU8fowlJYMpQirpBNeN+zGJg9u/BGgRqkZ6xymNDXnRxxdgjvXcvzNRB1ahYJQzCIL1K0E/0ae6tq2Up+tsaG5CMJXjeJIFpfeZb9s7g2PMCQLgIE9lzijNf6Sl88AmMzpoojaTYRSBkDTj1mAE9dKqzdOjAYQ3WrJx0BVcaCya1sFDQedrmGISEqrpSXCYmHNT6G6R//2enhwzFQ3RcP/n7yufQfdffvdQ9+kP7j7if3u89PpP+l7Nzrvvjw9Y++9I+k38GjDL6Qne/D4fJYBh9L/6ns/CID/DzsHv3ePbgrO4dKGPwkO7/J4EB2Pjs9utt9+pX00eFz5XO/M3hx6KHTk+/Ca2h7IoMnMvhUBh+pt9QTv8rgvuz8IYNA+VR+vpH+z6+eHb7663ggH7z1SPrH/ecuIbfYYOtho4/P4KuW2AoHUyaDc9txwOZjmVczgWvhVMbcHWPuxlgYgLxhqV5N5R0BNRYCLAHbsQxIqYbfwWmAJVy6teKI6GtuZnouO52eW11aiYBsca+y1cOyVbC4SGU9x7Qh9QY1zg/tPC+pdzfzGwvTm83K9atpu0Bt88ryDZG9NpXQbgJTZbuYTk2qP7THmeUxWHTAE4zYCa3oVWzLuAbNMt0GZ9HxbFuPxhRwnG5VYnOcP5vAXZxh8KaxFWX93MGFiQ9vD40y3KI9h0OqttoHeYcL4hjQZxY9tfQ4DHwoDATfwWXsYPNQhshR7FkukpFsWAajnFZFsreDYi6aMWk5D6nC6Zs4Z6mNFMY7QrhRjaEa94Wa5jli1MEcWnwhtt5yV7WWV7fn0gYx5sFITi6QdHIaYD45PzUzm5ybhiuTxkIVZmF2UHo5anuNcDtc1HDJE3SVMh2LvRQ2Ch4aRJz1p7fS4dKabI/VeewBtRd6MiQmCj7L6C4HlheA2c20UB5vO6Sht+QRV5EY26QGw7TNjNIWI1nrERbuY5X4/o1h46lUeq7P2QV69j/IXXch6ljUqsYa43ulfPbnzEQr5rk9MeSoQJyah4HitTsEz2tkr4jHkvUBimYm0S3hWQZkG1nKoVlNlUzcUmXYE1mbGtvhL4P2v93yrchmCgAA" ConnectionId="a3215c79-0fe5-4630-8707-25547b417fae" DisplayName="すべてのチャンネルのリストを取得" sap:VirtualizedContainerService.HintSize="484,217.33333333333334" sap2010:WorkflowViewState.IdRef="ConnectorActivity_3" UiPathActivityTypeId="43ada18e-0ab3-351b-8f2e-9119ed31109a">
+      <isactr:ConnectorActivity.FieldObjects>
+        <isactr:FieldObject Name="team_id" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">71cac8ec-09a1-4ee8-8256-74e30c9fe6e6</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="Jit_teams_sub_channels" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="uiascb:teams_sub_channels_List[]">[TeamsChannel]</OutArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+      </isactr:ConnectorActivity.FieldObjects>
+    </isactr:ConnectorActivity>
+    <ui:CreateList x:TypeArguments="upr:IResource" DisplayName="リストを作成" sap:VirtualizedContainerService.HintSize="484,168" sap2010:WorkflowViewState.IdRef="CreateList`1_2" NewList="[AttachmentFiles]" />
+    <ui:ForEachFileX DisplayName="繰り返し (フォルダー内の各ファイル)" Folder="R:\Snippets\SampleTextFiles" sap:VirtualizedContainerService.HintSize="484,671.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -123,7 +148,7 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="416,400.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="450,369.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="upr:ILocalResource" Name="AttachmentFile" />
             </Sequence.Variables>
@@ -132,13 +157,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:PathExists Exists="{x:Null}" DisplayName="パスの存在を確認" sap:VirtualizedContainerService.HintSize="353.6,156" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[CurrentFile.FullName]" PathType="File" Resource="[AttachmentFile]" />
-            <uasa:AppendItemToList x:TypeArguments="upr:IResource" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="353.6,158.4" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_4" ItemToAppend="[AttachmentFile]" List="[AttachmentFiles]" />
+            <ui:PathExists Exists="{x:Null}" DisplayName="パスの存在を確認" sap:VirtualizedContainerService.HintSize="416,150.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[CurrentFile.FullName]" PathType="File" Resource="[AttachmentFile]" />
+            <uasa:AppendItemToList x:TypeArguments="upr:IResource" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,158.66666666666666" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_4" ItemToAppend="[AttachmentFile]" List="[AttachmentFiles]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachFileX.Body>
     </ui:ForEachFileX>
-    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" ConnectionAccountName="{x:Null}" Mailbox="{x:Null}" AttachmentInputMode="Existing" AttachmentPaths="{x:Null}" Attachments="[AttachmentFiles]" AuthScopesInvalid="False" Bcc="{x:Null}" Cc="{x:Null}" ConnectionId="c29c7db3-aba5-4bb0-ac0a-8e8642aac0a8" ContinueOnError="{x:Null}" DisplayName="メールを送信" sap:VirtualizedContainerService.HintSize="449.6,582.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" ReplyTo="{x:Null}" SaveAsDraft="False" SingleAttachment="{x:Null}" Subject="ttt" TextBody="{x:Null}" To="[&quot;seiya-kawashima@autofor.co.jp&quot;.Split(&quot;;&quot;c)]" UseConnectionService="True" UseSharedMailbox="False">
+    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" Attachments="[AttachmentFiles]" AuthScopesInvalid="False" ConnectionId="c29c7db3-aba5-4bb0-ac0a-8e8642aac0a8" DisplayName="メールを送信" sap:VirtualizedContainerService.HintSize="449.6,582.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="ttt" To="[&quot;seiya-kawashima@autofor.co.jp&quot;.Split(&quot;;&quot;c)]" UseConnectionService="True" UseSharedMailbox="False">
       <umam:SendMailConnections.AttachmentsBackup>
         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
           <usau:BackupSlot.BackupValues>
