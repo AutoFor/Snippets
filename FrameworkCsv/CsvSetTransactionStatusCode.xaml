@@ -46,6 +46,10 @@
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configec6f38.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configb6a69b.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configc71cfc.Bundle</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -107,6 +111,8 @@
       <AssemblyReference>Configb6a69b.LBD4K3QA3sF1AtrI01DIVGo3</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>Configc71cfc.P0flFlklyA1ocime35suxL</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="CsvSetTransactionStatusCode" sap:VirtualizedContainerService.HintSize="1584.6666666666667,8094.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -140,7 +146,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_PhaseCodes]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config.Csv.PhaseCodesPath]" sap:VirtualizedContainerService.HintSize="478.6666666666667,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
+      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_PhaseCodes]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;PhaseCodesPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="478.6666666666667,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,7 +162,7 @@
                 <OutArgument x:TypeArguments="x:String">[ProcessCode]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[dr_CsvTransactionItem(Config.csv.ColProcessCode).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[dr_CsvTransactionItem(Config("Csv")("ColProcessCode").ToString).ToString]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -670,7 +676,7 @@
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColProcessCode)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColProcessCode"))]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:Object">[String.Format("{0}{1}{2:D2}{3}",Type,NextStatusCode,NextPhaseCode,NextRetryCount)]</InArgument>
