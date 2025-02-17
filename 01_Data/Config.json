@@ -1,0 +1,45 @@
+﻿{
+    "Settings": {
+        "theme": "light",
+        "language": "en",
+        "notificationsEnabled": true,
+        "CsvQueuePath": ""
+    },
+    "Constants": {
+        "MaxRetryNumber": 0,
+        "MaxConsecutiveSystemExceptions": 0,
+        "ExScreenshotsFolderPath": "Exceptions_Screenshots",
+        "LogMessage_GetTransactionData": "Processing Transaction Number: ",
+        "LogMessage_GetTransactionDataError": "Error getting transaction data for Transaction Number: ",
+        "LogMessage_Success": "Transaction Successful.",
+        "LogMessage_BusinessRuleException": "Business rule exception.",
+        "LogMessage_ApplicationException": "System exception.",
+        "ExceptionMessage_ConsecutiveErrors": "The maximum number of consecutive system exceptions was reached. ",
+        "RetryNumberGetTransactionItem": 2,
+        "RetryNumberSetTransactionStatus": 2,
+        "ShouldMarkJobAsFaulted": false
+    },
+    "Assets": {
+        "test":"foo"
+    },
+    "Csv": {
+        "PhaseCodesPath": "01_Data\\SettingsPhaseCodes.csv",
+        "QueuePath": "",
+        "DequeuePath": "C:\\RPA\\原価追加\\01_Dequeue\\0_工事番号取得\\{{st_TransactionItem}}_Dequeue.xlsx",
+        "ColDate": "RPA処理時刻",
+        "ColStatus": "RPA処理ステータス",
+        "ColDetail": "RPA処理ステータス_詳細",
+        "ColRetryNo": "RPAリトライ回数",
+        "ColPhaseName": "RPA処理名",
+        "ColProcessCode":"RPA ステータスコード",
+        "StatusNameSuccess": "成功",
+        "StatusNameFailed": "失敗",
+        "StatusNameBusinessException": "ビジネス例外",
+        "StatusCodeNew": 0,
+        "StatusCodeSuccessful": 1,
+        "StatusCodeFailed": 9,
+        "StatusCodeBusinessException": 8,
+        "MaxRetryNo": 3,
+		"IsEnqueueOnRetry":true
+    }
+}

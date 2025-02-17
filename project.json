@@ -2,21 +2,20 @@
   "name": "Snippets",
   "projectId": "f1632ce0-22a2-450e-8963-4374604b4372",
   "description": "空のプロジェクト",
-  "main": "O365SendMail.xaml",
+  "main": "Main.xaml",
   "dependencies": {
     "UiPath.CodedWorkflows": "[24.10.1]",
     "UiPath.Excel.Activities": "[2.24.4]",
-    "UiPath.IntegrationService.Activities": "[1.11.0]",
-    "UiPath.Mail.Activities": "[1.24.11]",
-    "UiPath.MicrosoftOffice365.Activities": "[2.8.22]",
     "UiPath.System.Activities": "[24.10.7]",
-    "UiPath.UIAutomation.Activities": "[24.10.10]"
+    "UiPath.Testing.Activities": "[24.10.4]",
+    "UiPath.UIAutomation.Activities": "[24.10.10]",
+    "UiPath.WebAPI.Activities": "[1.21.1]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.3.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -45,7 +44,127 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "59c190a9-c05a-4a67-9d7a-05f76aec9e14",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_9.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "4722cdf6-d9cb-419c-8b7f-68af793413ee",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_8.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "b982933b-3a98-4896-9d62-0f4cfcdad2ee",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_6.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "a97cb403-ea32-41c9-8620-fc5000d1a022",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_4_FailureComplted.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "8b3ad05e-262d-41df-8c40-ebed08e182b9",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_3_FailureRetry.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "72519f71-103b-45f1-96b7-c3cbd819dc33",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_2_BE.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "7c767850-2622-4f7c-a751-e2d723527b4a",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_1_Complete.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "228f5de7-2fa9-4487-a4bf-d63e703c313b",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_0_Success.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c1df9a46-26ee-4a41-a98e-a48a4bac15c8",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_8_BE.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6138de25-0d6b-4d7e-b533-a04137da7d05",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_7_FailureRetryEnqueue - コピー (1).xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "165f6671-2ac9-4066-ba62-3ac29f4a7b0a",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_6_Failure.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "b7f4f7c6-c8f1-44d3-a970-e0d49aaebcc2",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_5_FailureRetry.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "0bc0ecc9-de5d-4666-9031-27be7d8f8014",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_4_FailureRetry.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "bb4c7bd0-ae45-4814-9215-40d61dcd44a4",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_3.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "bbe9a9c3-1ca0-47e2-b288-e2fec34dea7d",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_2.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "734cd05f-8c27-4de1-9d92-78207328ccac",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_1.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "f552cf9d-49c3-4bf9-8c3e-8e799cc3e92f",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_0.xaml"
+      }
+    ],
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
@@ -53,6 +172,12 @@
     {
       "filePath": "O365SendMail.xaml",
       "uniqueId": "38b31bef-9b93-4528-a0c2-fc69baf2efbc",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "8992c5de-d47c-4e47-a567-e5d59aa6cca4",
       "input": [],
       "output": []
     }

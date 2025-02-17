@@ -113,7 +113,7 @@
       <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="このプログラムは、HTMLファイルをPDF形式に変換するためのツールです。PowerShellを呼び出すことで実現しており、特にEdgeやChromeを使用してHTMLファイルをPDFに変換するのが困難な場合に利用されています。&#xD;&#xA;&#xD;&#xA;=====PowerShellの事前準備&#xD;&#xA;PowerShellを管理者権限で起動し、以下のコマンドを実行します：&#xD;&#xA;&#xD;&#xA;Set-ExecutionPolicy RemoteSigned&#xD;&#xA;&#xD;&#xA;このコマンドの目的は、スクリプトの実行ポリシーを設定し、ローカルで作成されたスクリプトの実行を許可することで、リモートから取得した署名付きスクリプトも実行可能にすることです。これにより、必要なスクリプトがUiPathから適切に動作するようになります。&#xD;&#xA;" DisplayName="ConvertHtmlToPdf" sap:VirtualizedContainerService.HintSize="512,1051.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="このプログラムは、HTMLファイルをPDF形式に変換するためのツールです。PowerShellを呼び出すことで実現しており、特にEdgeやChromeを使用してHTMLファイルをPDFに変換するのが困難な場合に利用されています。&#xA;&#xA;=====PowerShellの事前準備&#xA;PowerShellを管理者権限で起動し、以下のコマンドを実行します：&#xA;&#xA;Set-ExecutionPolicy RemoteSigned&#xA;&#xA;このコマンドの目的は、スクリプトの実行ポリシーを設定し、ローカルで作成されたスクリプトの実行を許可することで、リモートから取得した署名付きスクリプトも実行可能にすることです。これにより、必要なスクリプトがUiPathから適切に動作するようになります。&#xA;" DisplayName="ConvertHtmlToPdf" sap:VirtualizedContainerService.HintSize="1666,811.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PowerShell" />
       <Variable x:TypeArguments="x:String" Name="currentProjectDir" />
@@ -124,8 +124,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DeleteFileX DisplayName="ファイルを削除" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[PdfPath]" />
-    <Assign DisplayName="現在のプロジェクトフォルダを取得　代入" sap:VirtualizedContainerService.HintSize="450,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:DeleteFileX DisplayName="ファイルを削除" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[PdfPath]" />
+    <Assign DisplayName="現在のプロジェクトフォルダを取得　代入" sap:VirtualizedContainerService.HintSize="484,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[currentProjectDir]</OutArgument>
       </Assign.To>
@@ -133,23 +133,19 @@
         <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetCurrentDirectory()]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:GetLastDownloadedFile File="{x:Null}" FileResource="{x:Null}" IgnoreFiles="{x:Null}" DisplayName="ダウンロードを待機" DownloadFolder="[Path.GetDirectoryName(PdfPath)]" sap:VirtualizedContainerService.HintSize="450,503.3333333333333" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="30">
+    <ui:GetLastDownloadedFile File="{x:Null}" FileResource="{x:Null}" IgnoreFiles="{x:Null}" DisplayName="ダウンロードを待機" DownloadFolder="[Path.GetDirectoryName(PdfPath)]" sap:VirtualizedContainerService.HintSize="484,478.6666666666667" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="30">
       <ui:GetLastDownloadedFile.Body>
         <ActivityAction>
-          <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="416,218.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="450,194" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokePowerShell x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="" CommandText="[Path.Combine(currentProjectDir,&quot;ConvertHtmlToPdf.ps1&quot;)]" ContinueOnError="True" DisplayName="PowerShell を呼び出し" sap:VirtualizedContainerService.HintSize="354,134" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_3" PowerShellProcess="WindowsPowerShell64">
+            <ui:InvokePowerShell x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="" CommandText="[Path.Combine(currentProjectDir,&quot;Others&quot;,&quot;ConvertHtmlToPdf.ps1&quot;)]" ContinueOnError="True" DisplayName="PowerShell を呼び出し" sap:VirtualizedContainerService.HintSize="416,134" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_3" PowerShellProcess="WindowsPowerShell64">
               <ui:InvokePowerShell.Parameters>
-                <InArgument x:TypeArguments="x:String" x:Key="htmlFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="HtmlPath" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="pdfFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="PdfPath" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="htmlFilePath">[HtmlPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="pdfFilePath">[PdfPath]</InArgument>
               </ui:InvokePowerShell.Parameters>
               <ui:InvokePowerShell.PowerShellVariables>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
