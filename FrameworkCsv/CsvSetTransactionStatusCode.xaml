@@ -337,7 +337,7 @@
                 </Sequence>
               </ui:IfElseIfBlock.Then>
             </ui:IfElseIfBlock>
-            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ResultStatusCode = 3 AndAlso CurrentRetryCount &lt; CInt(Config.Csv.MaxRetryNo)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ResultStatusCode = 3 AndAlso CurrentRetryCount &lt; CInt(Config(&quot;Csv&quot;)(&quot;MaxRetryNo&quot;))]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
               <ui:IfElseIfBlock.Then>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_40">
                   <sap:WorkflowViewStateService.ViewState>
@@ -356,7 +356,7 @@
                 </Sequence>
               </ui:IfElseIfBlock.Then>
             </ui:IfElseIfBlock>
-            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ResultStatusCode = 3 AndAlso CurrentRetryCount = CInt(Config.Csv.MaxRetryNo)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
+            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ResultStatusCode = 3 AndAlso CurrentRetryCount = CInt(Config(&quot;Csv&quot;)(&quot;MaxRetryNo&quot;))]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
               <ui:IfElseIfBlock.Then>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_41">
                   <sap:WorkflowViewStateService.ViewState>
@@ -445,7 +445,7 @@
                   <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[Config.Csv.StatusNameSuccess]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameSuccess").ToString]</InArgument>
                 </Assign.Value>
               </Assign>
               <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_74">
@@ -478,7 +478,7 @@
                 <OutArgument x:TypeArguments="x:Int32">[NextStatusCode]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[CInt(Config.Csv.StatusCodeSuccessful)]</InArgument>
+                <InArgument x:TypeArguments="x:Int32">[CInt(Config("Csv")("StatusCodeSuccessful"))]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_51">
@@ -502,7 +502,7 @@
                 <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Config.Csv.StatusNameSuccess]</InArgument>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameSuccess").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_54">
@@ -532,7 +532,7 @@
                 <OutArgument x:TypeArguments="x:Int32">[NextStatusCode]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[CInt(Config.Csv.StatusCodeBusinessException)]</InArgument>
+                <InArgument x:TypeArguments="x:Int32">[CInt(Config("Csv")("StatusCodeBusinessException"))]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_56">
@@ -556,7 +556,7 @@
                 <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Config.Csv.StatusNameBusinessException]</InArgument>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameBusinessException").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_59">
@@ -586,7 +586,7 @@
                 <OutArgument x:TypeArguments="x:Int32">[NextStatusCode]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[CInt(Config.Csv.StatusCodeNew)]</InArgument>
+                <InArgument x:TypeArguments="x:Int32">[CInt(Config("Csv")("StatusCodeNew"))]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_61">
@@ -610,7 +610,7 @@
                 <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Config.Csv.StatusNameFailed]</InArgument>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_64">
@@ -634,7 +634,7 @@
               <OutArgument x:TypeArguments="x:Int32">[NextStatusCode]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Int32">[CInt(Config.Csv.StatusCodeFailed)]</InArgument>
+              <InArgument x:TypeArguments="x:Int32">[CInt(Config("Csv")("StatusCodeFailed"))]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_66">
@@ -658,7 +658,7 @@
               <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Config.Csv.StatusNameFailed]</InArgument>
+              <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,108" sap2010:WorkflowViewState.IdRef="Assign_69">
@@ -676,7 +676,7 @@
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColProcessCode"))]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColProcessCode").ToString)]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:Object">[String.Format("{0}{1}{2:D2}{3}",Type,NextStatusCode,NextPhaseCode,NextRetryCount)]</InArgument>
@@ -684,7 +684,7 @@
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColDate)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColDate").ToString)]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:Object">[Now.ToString("yyyy/MM/dd HH:mm:ss")]</InArgument>
@@ -692,7 +692,7 @@
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColPhaseName)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColPhaseName").ToString)]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:Object">[NextPhaseName]</InArgument>
@@ -700,7 +700,7 @@
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColRetryNo)]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColRetryNo").ToString)]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:Object">[NextRetryCount]</InArgument>
@@ -722,7 +722,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <If sap2010:Annotation.AnnotationText="Else:ColQueueDetailに過去のSystemExceptionの詳細が記載されていた場合、上書きする" Condition="[String.IsNullOrEmpty(dr_CsvTransactionItem(Config.Csv.ColDetail).ToString)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="504,390.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+      <If sap2010:Annotation.AnnotationText="Else:ColQueueDetailに過去のSystemExceptionの詳細が記載されていた場合、上書きする" Condition="[String.IsNullOrEmpty(dr_CsvTransactionItem(Config(&quot;Csv&quot;)(&quot;ColDetail&quot;).ToString).ToString)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="504,390.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -731,7 +731,7 @@
         <If.Then>
           <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColDetail)]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColDetail").ToString)]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:Object">[CsvQueueDetail]</InArgument>
@@ -741,10 +741,10 @@
         <If.Else>
           <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config.Csv.ColDetail)]</OutArgument>
+              <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColDetail").ToString)]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Object">[String.Format("{0} {1}",dr_CsvTransactionItem(Config.Csv.ColDetail).ToString,CsvQueueDetail)]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[String.Format("{0} {1}",dr_CsvTransactionItem(Config("Csv")("ColDetail").ToString).ToString,CsvQueueDetail)]</InArgument>
             </Assign.Value>
           </Assign>
         </If.Else>
