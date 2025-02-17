@@ -132,7 +132,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="CSVファイルからPhaseCodes表を取得し、各レコードの値を読み込む。&#xA;取得したPhaseCodeは専用変数へ代入して厳密に管理する。&#xA;さらにProcessCodeは桁数に基づき分割し、各セグメントを個別解析で正確に識別し実装済とする。" DisplayName="PhaseCodesを代入" sap:VirtualizedContainerService.HintSize="538,1692.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="CSVファイルからPhaseCodes表を取得し、各レコードの値を読み込む。&#xA;取得したPhaseCodeは専用変数へ代入して厳密に管理する。&#xA;さらにProcessCodeは桁数に基づき分割し、各セグメントを個別解析で正確に識別し実装済とする。1" DisplayName="PhaseCodesを代入" sap:VirtualizedContainerService.HintSize="538,1692.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
