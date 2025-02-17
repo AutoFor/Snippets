@@ -56,6 +56,10 @@
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configec6f38.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configb6a69b.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configc71cfc.Bundle</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -199,7 +203,7 @@
                 <InArgument x:TypeArguments="x:Int32">0</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CsvSetTransactionStatusCode - ワークフロー ファイルを呼び出し (FrameworkCsv\CsvSetTransactionStatusCode.xaml)" sap:VirtualizedContainerService.HintSize="504,176.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="FrameworkCsv\CsvSetTransactionStatusCode.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CsvSetTransactionStatusCode - ワークフロー ファイルを呼び出し (FrameworkCsv\CsvSetTransactionStatusCode.xaml)" sap:VirtualizedContainerService.HintSize="504,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="FrameworkCsv\CsvSetTransactionStatusCode.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InOutArgument x:TypeArguments="sd:DataRow" x:Key="dr_CsvTransactionItem">[dr_CsvTransactionItem]</InOutArgument>
                 <InOutArgument x:TypeArguments="x:Int32" x:Key="ResultStatusCode">[ResultStatusCode]</InOutArgument>
@@ -260,7 +264,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Complete Queue =&gt; Dequeue" sap:VirtualizedContainerService.HintSize="468,1020" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <Sequence DisplayName="Complete Queue =&gt; Dequeue" sap:VirtualizedContainerService.HintSize="468,1042.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_64">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -281,7 +285,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:AddDataRow>
-                    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV に書き込み" FilePath="[Config.Csv.DequeuePath]" sap:VirtualizedContainerService.HintSize="434,231.33333333333334" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_4" ShouldQuote="True" />
+                    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV に書き込み" FilePath="[Config(&quot;Csv&quot;)(&quot;DequeuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,231.33333333333334" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_4" ShouldQuote="True" />
                   </Sequence>
                 </Sequence>
               </If.Else>
@@ -345,7 +349,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:RemoveDataRow>
                 <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_Queue]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;Csv&quot;)(&quot;QueuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="WriteCsvFile_4" ShouldQuote="True" />
-                <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_Dequeue]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config.Csv.DequeuePath]" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_10" ShouldQuote="True" />
+                <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_Dequeue]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;Csv&quot;)(&quot;DequeuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_10" ShouldQuote="True" />
               </Sequence>
             </FlowStep>
           </FlowDecision.True>
@@ -364,7 +368,7 @@
                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="470,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="542,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int32">[ResultStatusCode]</OutArgument>
                   </Assign.To>
@@ -372,13 +376,13 @@
                     <InArgument x:TypeArguments="x:Int32">3</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CsvSetTransactionStatusCode - ワークフロー ファイルを呼び出し (FrameworkCsv\CsvSetTransactionStatusCode.xaml)" sap:VirtualizedContainerService.HintSize="470,176.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="FrameworkCsv\CsvSetTransactionStatusCode.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CsvSetTransactionStatusCode - ワークフロー ファイルを呼び出し (FrameworkCsv\CsvSetTransactionStatusCode.xaml)" sap:VirtualizedContainerService.HintSize="542,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="FrameworkCsv\CsvSetTransactionStatusCode.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InOutArgument x:TypeArguments="sd:DataRow" x:Key="dr_CsvTransactionItem">[dr_CsvTransactionItem]</InOutArgument>
                     <InOutArgument x:TypeArguments="x:Int32" x:Key="ResultStatusCode">[ResultStatusCode]</InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <If Condition="[ResultStatusCode = 3]" sap:VirtualizedContainerService.HintSize="470,1451.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[ResultStatusCode = 3]" sap:VirtualizedContainerService.HintSize="542,3163.3333333333335" sap2010:WorkflowViewState.IdRef="If_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -386,17 +390,17 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,138.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                    <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Then" sap:VirtualizedContainerService.HintSize="540,1850.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_59">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[Convert.ToBoolean(Config.Csv.IsEnqueueOnRetry)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="If_7">
+                      <If Condition="[Convert.ToBoolean(Config(&quot;Csv&quot;)(&quot;IsEnqueueOnRetry&quot;))]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="506,1737.3333333333333" sap2010:WorkflowViewState.IdRef="If_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -426,7 +430,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="470,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;CsvSetTransactionStatus.xaml is Running... (Failure Retry)&quot;]" />
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="470,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Trace" Message="[&quot;CsvSetTransactionStatus.xaml is Running... (Failure Retry)&quot;]" />
                             <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[ColIdx]" DisplayName="繰り返し (コレクションの各要素) Value" sap:VirtualizedContainerService.HintSize="470,482" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dr_CsvTransactionItem.ItemArray]">
                               <ui:ForEach.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
@@ -464,7 +468,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap2010:Annotation.AnnotationText="Queue(先頭行)→Queue(最終行)に移動" DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,1182" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                    <Sequence sap2010:Annotation.AnnotationText="Queue(先頭行)→Queue(最終行)に移動" DisplayName="Else" sap:VirtualizedContainerService.HintSize="540,1182" sap2010:WorkflowViewState.IdRef="Sequence_50">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -472,8 +476,8 @@
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;CsvSetTransactionStatus.xaml is Running... (Failure MaxRetry)&quot;]" />
-                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dr_CsvTransactionItem.ItemArray]" DataTable="[dt_Dequeue]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_21" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="506,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;CsvSetTransactionStatus.xaml is Running... (Failure MaxRetry)&quot;]" />
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dr_CsvTransactionItem.ItemArray]" DataTable="[dt_Dequeue]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="506,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_21" />
                       <ui:RemoveDataRow Row="{x:Null}" sap2010:Annotation.AnnotationText="dtbQueueの0行目を削除&#xA;" DataTable="[dt_Queue]" DisplayName="dtbQueue Remove Data Row" sap:VirtualizedContainerService.HintSize="434,268.6666666666667" sap2010:WorkflowViewState.IdRef="RemoveDataRow_5" RowIndex="0">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -482,7 +486,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:RemoveDataRow>
                       <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_Queue]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;Csv&quot;)(&quot;QueuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="WriteCsvFile_6" ShouldQuote="True" />
-                      <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV に書き込み" FilePath="[Config.Csv.DequeuePath]" sap:VirtualizedContainerService.HintSize="434,231.33333333333334" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_2" ShouldQuote="True" />
+                      <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV に書き込み" FilePath="[Config(&quot;Csv&quot;)(&quot;DequeuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,231.33333333333334" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_2" ShouldQuote="True" />
                     </Sequence>
                   </If.Else>
                 </If>
@@ -502,7 +506,7 @@
           <av:Size x:Key="ShapeSize">110,70</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="PostponeDrTransactioneがTrueの場合、項目はQueueの先頭から末尾に移動します。&#xA;&#xA;これにより、該当項目の処理は後回しにされ、他の項目が先に処理される機会を得ます。" DisplayName="Postpone" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_49">
+      <Sequence sap2010:Annotation.AnnotationText="PostponeDrTransactioneがTrueの場合、項目はQueueの先頭から末尾に移動します。&#xA;&#xA;これにより、該当項目の処理は後回しにされ、他の項目が先に処理される機会を得ます。" DisplayName="Postpone" sap:VirtualizedContainerService.HintSize="468,956" sap2010:WorkflowViewState.IdRef="Sequence_49">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -546,7 +550,7 @@
           <av:PointCollection x:Key="ConnectorLocation">395,247.4 395,336.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="dtbQueueとdtbDequeueを読み込み" DisplayName="Init" sap:VirtualizedContainerService.HintSize="468,433.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_53">
+      <Sequence sap2010:Annotation.AnnotationText="dtbQueueとdtbDequeueを読み込み" DisplayName="Init" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_53">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -561,7 +565,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:ReadCsvFile>
-        <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config.Csv.DequeuePath]" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="ReadCsvFile_10">
+        <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_Dequeue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;DequeuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="ReadCsvFile_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
