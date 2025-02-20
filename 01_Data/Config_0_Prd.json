@@ -6,7 +6,7 @@
     "Constants": {
         "MaxRetryNumber": 0,
         "MaxConsecutiveSystemExceptions": 0,
-        "ExScreenshotsDir": "Exceptions_Screenshots",
+        "ExScreenshotsFolderPath": "Exceptions_Screenshots",
         "LogMessage_GetTransactionData": "プロセストランザクション番号：  ",
         "LogMessage_GetTransactionDataError": "トランザクションデータの取得にエラーが発生しました。トランザクション番号: ",
         "LogMessage_Success": "トランザクションが成功しました。",
