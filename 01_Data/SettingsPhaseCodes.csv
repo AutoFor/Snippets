@@ -3,6 +3,7 @@ A,0,InitProcessA
 A,1,ProcessB
 A,2,ProcessC
 A,3,FinalProcessD
-B,1,
-B,2
+B,0,InitProcessA
+B,1,Process 1
+B,2,Process 2
 

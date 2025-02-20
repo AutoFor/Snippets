@@ -1,0 +1,5 @@
+TestCaseNo,EnvironmentNo,TestCaseDescription,SaveMailDraft,SkipTransfer,InitError
+0,0,正常,,,
+1,0,メールを下書き保存する,true,,
+2,0,振込をせずにMessageBoxを出す,,true,
+900,0,初期設定エラー,true,,true

@@ -6,6 +6,8 @@
   "dependencies": {
     "UiPath.CodedWorkflows": "[24.10.1]",
     "UiPath.Excel.Activities": "[2.24.4]",
+    "UiPath.Mail.Activities": "[1.24.13]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.9.11]",
     "UiPath.System.Activities": "[24.10.7]",
     "UiPath.Testing.Activities": "[24.10.4]",
     "UiPath.UIAutomation.Activities": "[24.10.10]",
@@ -47,134 +49,121 @@
     "fileInfoCollection": [
       {
         "editingStatus": "InProgress",
-        "testCaseId": "59c190a9-c05a-4a67-9d7a-05f76aec9e14",
+        "testCaseId": "65af209e-888a-42ae-80bb-dc23386fc161",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_9.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_0.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "4722cdf6-d9cb-419c-8b7f-68af793413ee",
+        "testCaseId": "a4d97e44-6b35-4c29-bf53-f9ecca838d64",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_8.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_800_定義されていないプロセス.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "b982933b-3a98-4896-9d62-0f4cfcdad2ee",
+        "testCaseId": "1671efff-3e26-47ea-ab1a-3dd63e8446cb",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_6.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_801_QueueTemplateの列が不足している場合.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "a97cb403-ea32-41c9-8620-fc5000d1a022",
+        "testCaseId": "035993f8-9c2e-4d5e-81de-ae9f75e059d6",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_4_FailureComplted.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_901_市捨て.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "8b3ad05e-262d-41df-8c40-ebed08e182b9",
+        "testCaseId": "de426e0e-c88f-454a-98e5-eecfb3bff5d3",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_3_FailureRetry.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_902.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "72519f71-103b-45f1-96b7-c3cbd819dc33",
+        "testCaseId": "21d777a3-ad5a-477e-ada7-deec507b6b27",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_2_BE.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvResetTransactionStatus.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "7c767850-2622-4f7c-a751-e2d723527b4a",
+        "testCaseId": "17a8af4f-f631-4a63-8cb3-3126e293a977",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_1_Complete.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_0_SuccessNextPhase.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "228f5de7-2fa9-4487-a4bf-d63e703c313b",
+        "testCaseId": "4545d30d-cd88-4011-b62c-d973e5fdf1bc",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatusCode_0_Success.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_1_Completed.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "c1df9a46-26ee-4a41-a98e-a48a4bac15c8",
+        "testCaseId": "8aff95b4-8eb9-43ba-ba7c-f11ad477aa74",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_8_BE.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_10_ErrorResultCode.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "6138de25-0d6b-4d7e-b533-a04137da7d05",
+        "testCaseId": "3f2e3cf2-4d82-457b-941d-91151a9d56e6",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_7_FailureRetryEnqueue - コピー (1).xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_2_FailureRetryNotEnqueue.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "165f6671-2ac9-4066-ba62-3ac29f4a7b0a",
+        "testCaseId": "dd133a6b-8e45-4367-8f4a-c7335761acc2",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_6_Failure.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_3_FailureRetryEnqueue.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "b7f4f7c6-c8f1-44d3-a970-e0d49aaebcc2",
+        "testCaseId": "36e9cccc-df5a-4ac7-8be5-260b86a4f878",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_5_FailureRetry.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_4_FailureDequeue.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "0bc0ecc9-de5d-4666-9031-27be7d8f8014",
+        "testCaseId": "319e949a-28ac-46b7-8019-a8aa3f975b62",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_4_FailureRetry.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_5_BusinessException.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "bb4c7bd0-ae45-4814-9215-40d61dcd44a4",
+        "testCaseId": "111d4488-86c6-458c-9063-32cb652309c6",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_3.xaml"
+        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_6_Postpone.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "bbe9a9c3-1ca0-47e2-b288-e2fec34dea7d",
+        "testCaseId": "1fcaacc3-3980-41c4-828d-60274e084df0",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_2.xaml"
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_910_初期設定エラー.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "734cd05f-8c27-4de1-9d92-78207328ccac",
+        "testCaseId": "0b6fce52-c2b7-4884-b98e-14dea85995b1",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_1.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "f552cf9d-49c3-4bf9-8c3e-8e799cc3e92f",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_0.xaml"
+        "fileName": "99_Tests\\Framework\\TestCaseGenerator_EnvironmentNoが空白の場合.xaml"
       }
     ],
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
-    {
-      "filePath": "O365SendMail.xaml",
-      "uniqueId": "38b31bef-9b93-4528-a0c2-fc69baf2efbc",
-      "input": [],
-      "output": []
-    },
     {
       "filePath": "Main.xaml",
       "uniqueId": "8992c5de-d47c-4e47-a567-e5d59aa6cca4",

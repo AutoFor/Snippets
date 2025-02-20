@@ -1,6 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InitiAllSettings" this:InitiAllSettings.ConfigFilePath="01_Data\Config.json" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InitiAllSettings" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Path to the configuration file that defines settings, constants and assets." Name="ConfigFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="Config" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="TestCaseNo" Type="InArgument(x:Int32)" />
+    <x:Property Name="TestCases" Type="OutArgument(scg:Dictionary(x:String, x:Boolean))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -56,6 +58,7 @@
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configec6f38.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configb6a69b.Bundle</x:String>
       <x:String>UiPath.Web.Activities.ViewModels.SWEntities.Configc71cfc.Bundle</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -133,11 +136,19 @@
       <AssemblyReference>Configec6f38.HQIYa4aW9iR1PqRu51gV2d73</AssemblyReference>
       <AssemblyReference>Configb6a69b.LBD4K3QA3sF1AtrI01DIVGo3</AssemblyReference>
       <AssemblyReference>Configc71cfc.P0flFlklyA1ocime35suxL</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Initialize, populate and output a configuration Dictionary to be used throughout the project. &#xA;Settings and constants are read from the local configuration file, and assets are fetched from Orchestrator. &#xA;Asset values overwrite settings and constant values if they are defined with the same name." DisplayName="Initialize All Settings" sap:VirtualizedContainerService.HintSize="1602,949.3733333333332" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="Initialize, populate and output a configuration Dictionary to be used throughout the project. &#xA;Settings and constants are read from the local configuration file, and assets are fetched from Orchestrator. &#xA;Asset values overwrite settings and constant values if they are defined with the same name." DisplayName="Initialize All Settings" sap:VirtualizedContainerService.HintSize="1412,1644.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="st_Config" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Path to the configuration file that defines settings, constants and assets." Default="01_Data\Config.json" Name="ConfigPath" />
+      <Variable x:TypeArguments="x:Int32" Name="EnvironmentNo" />
+      <Variable x:TypeArguments="x:String" Name="TestCasesPath">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">01_Data\SettingsTestCases.csv</Literal>
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -145,9 +156,73 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message (Initialize All Settings)" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Initializing settings by JSON...&quot;]" />
-    <ui:ReadTextFile File="{x:Null}" Content="[st_Config]" DisplayName="テキスト ファイルを読み込み" FileName="[ConfigFilePath]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="JSON を逆シリアル化" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5" JsonObject="[GlobalVariablesNamespace.GlobalVariables.Config]" JsonString="[st_Config]" />
-    <ui:Comment DisplayName="コメント" sap:VirtualizedContainerService.HintSize="416,79.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// todo Assets" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="TestCaseGenerator - ワークフロー ファイルを呼び出し (Framework\TestCaseGenerator.xaml)" sap:VirtualizedContainerService.HintSize="470,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\TestCaseGenerator.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="TestCaseNo">[TestCaseNo]</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Boolean)" x:Key="TestCases">[TestCases]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="EnvironmentNo">[EnvironmentNo]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="TestCasesPath">[TestCasesPath]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message (Initialize All Settings)" sap:VirtualizedContainerService.HintSize="470,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Initializing settings by JSON...&quot;]" />
+    <Switch x:TypeArguments="x:Int32" DisplayName="条件分岐 (switch)" Expression="[EnvironmentNo]" sap:VirtualizedContainerService.HintSize="470,888.6666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch.Default>
+        <Sequence DisplayName="既定" sap:VirtualizedContainerService.HintSize="468,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </Switch.Default>
+      <Sequence x:Key="0" DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[ConfigPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">01_Data\Config_0_Prd.json</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="1" DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[ConfigPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">01_Data\Config_1_Test.json</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="2" DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[ConfigPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">01_Data\Config_2_Dev.json</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </Switch>
+    <ui:ReadTextFile File="{x:Null}" Content="[st_Config]" DisplayName="テキスト ファイルを読み込み" FileName="[ConfigPath]" sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="JSON を逆シリアル化" sap:VirtualizedContainerService.HintSize="470,124" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5" JsonObject="[Config]" JsonString="[st_Config]" />
+    <ui:Comment DisplayName="コメント" sap:VirtualizedContainerService.HintSize="470,79.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// todo Assets" />
   </Sequence>
 </Activity>

@@ -1,3 +1,15 @@
 {
-  "Value": {}
+  "Value": {
+    "CsvFlowchart.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "367d4b21-cb9c-43e8-a1d7-e5c81a420287",
+        "ActivityIdRef": "Sequence_83",
+        "ActivityId": null,
+        "ActivityName": "無視されるアクティビティ",
+        "IsTransient": false
+      }
+    ]
+  }
 }
