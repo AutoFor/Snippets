@@ -1,4 +1,4 @@
-Type,TypeName,Phase,PhaseName
+GroupType,GroupName,PhaseCode,PhaseName
 A,受注伝票登録,0,バリデーションチェック
 A,受注伝票登録,1,DU処理
 A,受注伝票登録,2,システム登録
@@ -6,3 +6,4 @@ A,受注伝票登録,3,承認依頼
 B,クレーム/返品対応,0,メール取得
 B,クレーム/返品対応,1,システム状況確認
 B,クレーム/返品対応,2,メール下書き保存
+C,在庫確認,0,システム在庫csv取得

@@ -44,6 +44,7 @@
       <x:String>Newtonsoft.Json</x:String>
       <x:String>System.Dynamic</x:String>
       <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -115,9 +116,10 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1470,3538.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_28">
+  <Sequence sap:VirtualizedContainerService.HintSize="1412,3538.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_28">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_InputQueue" />
     </Sequence.Variables>
@@ -142,7 +144,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel ファイルを使用" sap:VirtualizedContainerService.HintSize="572,3350.6666666666665" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[TestDataOutputExcelPath]">
+        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel ファイルを使用" sap:VirtualizedContainerService.HintSize="572,3350.6666666666665" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[Path.Combine(TestDataOutputDir,&quot;99_TestCase_Diff.xlsx&quot;)]">
           <ueab:ExcelApplicationCard.Body>
             <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
               <ActivityAction.Argument>

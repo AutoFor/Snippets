@@ -655,9 +655,9 @@
                       <av:PointCollection x:Key="ConnectorLocation">105,440 75,440 75,208.5 240,208.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap2010:Annotation.AnnotationText="1つのトランザクションを処理する。&#xA;処理の結果は、次のようになる： 1) 成功、2) ビジネス例外、3) システム例外、4)延期 。&#xA;システム例外の場合、トランザクションを自動的に再試行することができる。" DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_93">
+                  <Sequence sap2010:Annotation.AnnotationText="1つのトランザクションを処理する。&#xA;処理の結果は、次のようになる： 1) 成功、2) ビジネス例外、3) システム例外、4)延期 。&#xA;システム例外の場合、トランザクションを自動的に再試行することができる。" DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="584.6666666666666,3876.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_93">
                     <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="ProcessType" />
+                      <Variable x:TypeArguments="x:String" Name="ProcessGroupType" />
                       <Variable x:TypeArguments="x:String" Name="ProcessPhaseCode" />
                       <Variable x:TypeArguments="x:String" Name="ProcessCode" />
                     </Sequence.Variables>
@@ -680,10 +680,10 @@
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="sd:DataRow" x:Key="dr_CsvTransactionItem">[dr_CsvTransactionItem]</InArgument>
                         <InArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="ProcessType">[ProcessType]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="ProcessPhaseCode">[ProcessPhaseCode]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="ProcessPhaseName">[ProcessPhaseName]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="ProcessCode">[ProcessCode]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="ProcessGroupType">[ProcessGroupType]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <TryCatch DisplayName="トライ キャッチ" sap:VirtualizedContainerService.HintSize="550.6666666666666,3354" sap2010:WorkflowViewState.IdRef="TryCatch_15">
@@ -700,13 +700,13 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Fatal" Message="[String.Format(&quot;{0}:{1}を処理中...&quot;,ProcessType+ProcessPhaseCode,ProcessPhaseName)]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Fatal" Message="[String.Format(&quot;{0}:{1}を処理中...&quot;,ProcessGroupType+ProcessPhaseCode,ProcessPhaseName)]" />
                           <ui:AddLogFields DisplayName="ログ フィールドを追加" sap:VirtualizedContainerService.HintSize="514.6666666666666,124.66666666666667" sap2010:WorkflowViewState.IdRef="AddLogFields_3">
                             <ui:AddLogFields.Fields>
                               <InArgument x:TypeArguments="x:String" x:Key="CurrentPhaseName">[ProcessPhaseName]</InArgument>
                             </ui:AddLogFields.Fields>
                           </ui:AddLogFields>
-                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ProcessType + ProcessPhaseCode]" sap:VirtualizedContainerService.HintSize="514.6666666666666,2353.3333333333335" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ProcessGroupType + ProcessPhaseCode]" sap:VirtualizedContainerService.HintSize="514.6666666666666,2353.3333333333335" sap2010:WorkflowViewState.IdRef="Switch`1_4">
                             <Switch.Default>
                               <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="512.6666666666666,354.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_114">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -722,7 +722,7 @@
                                           <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
                                         </ui:AssignOperation.To>
                                         <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="ui:BusinessRuleException">[New BusinessRuleException(String.Format("{1}:[{2}{0}]がSwitchアクティビティ内に定義されていません。",ProcessPhaseCode,ProcessCode,ProcessType))]</InArgument>
+                                          <InArgument x:TypeArguments="ui:BusinessRuleException">[New BusinessRuleException(String.Format("{1}:[{2}{0}]がSwitchアクティビティ内に定義されていません。",ProcessPhaseCode,ProcessCode,ProcessGroupType))]</InArgument>
                                         </ui:AssignOperation.Value>
                                       </ui:AssignOperation>
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_109">
@@ -945,7 +945,7 @@
                       <av:Size x:Key="ShapeSize">110,70</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap2010:Annotation.AnnotationText="Queueの全件処理後、残っていたら処理を延期し、なければ処理を終了して使用した全アプリケーションを閉じます。&#xA;" DisplayName="Finally" sap:VirtualizedContainerService.HintSize="584.6666666666666,3134.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence sap2010:Annotation.AnnotationText="Queueの全件処理後、残っていたら処理を延期し、なければ処理を終了して使用した全アプリケーションを閉じます。&#xA;" DisplayName="Finally" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

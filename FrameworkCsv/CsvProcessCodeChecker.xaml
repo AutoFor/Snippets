@@ -2,10 +2,10 @@
   <x:Members>
     <x:Property Name="dr_CsvTransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property Name="Config" Type="InArgument(njl:JObject)" />
-    <x:Property Name="ProcessType" Type="OutArgument(x:String)" />
     <x:Property Name="ProcessPhaseCode" Type="OutArgument(x:String)" />
     <x:Property Name="ProcessPhaseName" Type="OutArgument(x:String)" />
     <x:Property Name="ProcessCode" Type="OutArgument(x:String)" />
+    <x:Property Name="ProcessGroupType" Type="OutArgument(x:String)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -146,10 +146,10 @@
       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="1412,2446.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_114">
+  <Sequence sap:VirtualizedContainerService.HintSize="1440.6666666666667,2446.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_114">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:Exception" Name="SystemException" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_OriginalPhaseCodes" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_GroupPhasesOriginal" />
       <Variable x:TypeArguments="x:String" Name="ProcessStatusCode" />
       <Variable x:TypeArguments="x:Int32" Name="ProcessRetryCount" />
     </Sequence.Variables>
@@ -160,7 +160,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <Sequence sap2010:Annotation.AnnotationText="ProcessCode内を分析する" DisplayName="PhaseCodeを分析" sap:VirtualizedContainerService.HintSize="582.6666666666666,2424" sap2010:WorkflowViewState.IdRef="Sequence_94">
       <Sequence.Variables>
-        <Variable x:TypeArguments="sd:DataTable" Name="dt_ProcessCode" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt_GroupPhases" />
         <Variable x:TypeArguments="x:Boolean" Name="IsMatch" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
@@ -170,7 +170,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_OriginalPhaseCodes]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;GroupPhasesPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="548.6666666666666,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_GroupPhasesOriginal]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;GroupPhasesPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="548.6666666666666,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -241,7 +241,7 @@
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_97">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[ProcessType]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[ProcessGroupType]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
                 <InArgument x:TypeArguments="x:String">[ProcessCode.Substring(0,1)]</InArgument>
@@ -281,20 +281,20 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:FilterDataTable DataTable="[dt_OriginalPhaseCodes]" DisplayName="process codes データ テーブルをフィルター" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="514.6666666666666,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_15" OutputDataTable="[dt_ProcessCode]" SelectColumnsMode="Remove">
+        <ui:FilterDataTable DataTable="[dt_GroupPhasesOriginal]" DisplayName="process codes データ テーブルをフィルター" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="514.6666666666666,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_15" OutputDataTable="[dt_GroupPhases]" SelectColumnsMode="Remove">
           <ui:FilterDataTable.Filters>
             <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
               <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
                 <ui:FilterOperationArgument.Column>
-                  <InArgument x:TypeArguments="x:String">["Type"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["GroupType"]</InArgument>
                 </ui:FilterOperationArgument.Column>
                 <ui:FilterOperationArgument.Operand>
-                  <InArgument x:TypeArguments="x:String">[ProcessType]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ProcessGroupType]</InArgument>
                 </ui:FilterOperationArgument.Operand>
               </ui:FilterOperationArgument>
               <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
                 <ui:FilterOperationArgument.Column>
-                  <InArgument x:TypeArguments="x:String">["Code"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["PhaseCode"]</InArgument>
                 </ui:FilterOperationArgument.Column>
                 <ui:FilterOperationArgument.Operand>
                   <InArgument x:TypeArguments="x:String">[ProcessPhaseCode]</InArgument>
@@ -308,7 +308,7 @@
             </scg:List>
           </ui:FilterDataTable.SelectColumns>
         </ui:FilterDataTable>
-        <If Condition="[dt_ProcessCode.Rows.Count = 0]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,570" sap2010:WorkflowViewState.IdRef="If_19">
+        <If Condition="[dt_GroupPhases.Rows.Count = 0]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,570" sap2010:WorkflowViewState.IdRef="If_19">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -332,8 +332,8 @@
                       <ui:AssignOperation.Value>
                         <InArgument x:TypeArguments="s:Exception" xml:space="preserve">[New Exception(String.Format( _
 "ProcessCode[{0}]エラー。ProcessCodeの1桁目英字のPhaseType[{1}]+3桁目数字のPhaseCode[{2}]の組み合わせはPhase Codes に含まれていません。{4}""{5}""内のPhase Codes一覧: {3} ",  _
-ProcessCode,ProcessType,ProcessPhaseCode, String.Join(",", _
-dt_OriginalPhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &amp; row.Field(Of String)("Code")).ToArray()),vbcrlf,Config("Csv")("GroupPhasesPath")))]</InArgument>
+ProcessCode,ProcessGroupType,ProcessPhaseCode, String.Join(",", _
+dt_GroupPhasesOriginal.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &amp; row.Field(Of String)("Code")).ToArray()),vbcrlf,Config("Csv")("GroupPhasesPath")))]</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_104">
@@ -369,10 +369,10 @@ dt_OriginalPhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("
       </Sequence>
       <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="548.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_76">
         <Assign.To>
-          <OutArgument x:TypeArguments="sd:DataColumn[]">[dt_ProcessCode.PrimaryKey]</OutArgument>
+          <OutArgument x:TypeArguments="sd:DataColumn[]">[dt_GroupPhases.PrimaryKey]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="sd:DataColumn[]">[New DataColumn(){dt_ProcessCode.Columns.Item("Code")}]</InArgument>
+          <InArgument x:TypeArguments="sd:DataColumn[]">[New DataColumn(){dt_GroupPhases.Columns.Item("PhaseCode")}]</InArgument>
         </Assign.Value>
       </Assign>
       <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="548.6666666666666,108" sap2010:WorkflowViewState.IdRef="Assign_73">
@@ -380,7 +380,7 @@ dt_OriginalPhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("
           <OutArgument x:TypeArguments="x:String">[ProcessPhaseName]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[dt_ProcessCode.Rows.Find(ProcessPhaseCode)("CodeName").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(ProcessPhaseCode)("PhaseName").ToString]</InArgument>
         </Assign.Value>
       </Assign>
     </Sequence>

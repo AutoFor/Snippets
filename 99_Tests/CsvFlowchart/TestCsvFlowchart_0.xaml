@@ -105,7 +105,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCsvFlowchart" sap:VirtualizedContainerService.HintSize="1412,1697.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCsvFlowchart" sap:VirtualizedContainerService.HintSize="1412,1834.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="EnvironmentNo" />
       <Variable x:TypeArguments="njl:JObject" Name="Config" />
@@ -236,12 +236,20 @@
         </TryCatch.Finally>
       </TryCatch>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="504,113.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="504,250.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="TestCsvFlowchartThen - ワークフロー ファイルを呼び出し (99_Tests\FrameworkCsv\TestCsvFlowchartThen.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="99_Tests\FrameworkCsv\TestCsvFlowchartThen.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="TestDataOutputExcelPath" />
+          <InArgument x:TypeArguments="x:String" x:Key="TestDataOutputDir" />
+          <OutArgument x:TypeArguments="x:String" x:Key="TotalPass" />
+          <InArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
     </Sequence>
   </Sequence>
 </Activity>
