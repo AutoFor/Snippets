@@ -125,7 +125,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1429.3333333333333,568.824" sap2010:WorkflowViewState.IdRef="Sequence_20">
+  <Sequence sap:VirtualizedContainerService.HintSize="1412,1746" sap2010:WorkflowViewState.IdRef="Sequence_20">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CurrentNow" />
       <Variable x:TypeArguments="x:String" Name="TestDataInputDir" />
@@ -136,10 +136,10 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Init" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_34">
+    <Sequence DisplayName="Init" sap:VirtualizedContainerService.HintSize="518,1630" sap2010:WorkflowViewState.IdRef="Sequence_34">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -212,10 +212,10 @@
       </ui:MultipleAssign>
       <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="484,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_31">
         <Assign.To>
-          <OutArgument x:TypeArguments="njl:JToken">[Config("Csv")("PhaseCodesPath")]</OutArgument>
+          <OutArgument x:TypeArguments="njl:JToken">[Config("Csv")("GroupPhasesPath")]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="njl:JToken">[Path.Combine(TestDataDir,"SettingsPhaseCodes.csv")]</InArgument>
+          <InArgument x:TypeArguments="njl:JToken">[Path.Combine(TestDataDir,"SettingsGroupPhases.csv")]</InArgument>
         </Assign.Value>
       </Assign>
       <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="フォルダーを作成" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[TestDataOutputDir]" />
@@ -240,7 +240,7 @@
         </ui:ForEachFileX.Body>
       </ui:ForEachFileX>
     </Sequence>
-    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_31">
+    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="518,93.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_31">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="DiffExcelFileNameWithoutExtension" />
         <Variable x:TypeArguments="x:String" Name="TestDataInputExcelPath" />

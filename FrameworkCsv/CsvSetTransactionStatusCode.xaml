@@ -131,11 +131,11 @@
       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="CsvSetTransactionStatusCode" sap:VirtualizedContainerService.HintSize="1412,11372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CsvSetTransactionStatusCode" sap:VirtualizedContainerService.HintSize="1440.6666666666667,11570" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_PhaseCodes" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_GroupPhases" />
       <Variable x:TypeArguments="x:String" Name="ProcessCode" />
-      <Variable x:TypeArguments="x:String" Name="NextStatusName" />
+      <Variable x:TypeArguments="x:String" Name="NextPhaseStatusName" />
       <Variable x:TypeArguments="x:String" Name="CurrentPhaseName" />
       <Variable x:TypeArguments="x:Int32" Name="CurrentPhaseCode" />
       <Variable x:TypeArguments="x:Int32" Name="CurrentRetryCount" />
@@ -149,15 +149,17 @@
       <Variable x:TypeArguments="x:String" Name="NextPhaseName" />
       <Variable x:TypeArguments="x:String" Name="CurrentNow" />
       <Variable x:TypeArguments="s:Exception" Name="myException" />
+      <Variable x:TypeArguments="x:String" Name="CurrentGroupName" />
+      <Variable x:TypeArguments="x:String" Name="NextGroupStatusName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="CSVファイルからPhaseCodes表を取得し、各レコードの値を読み込む。&#xA;取得したPhaseCodeは専用変数へ代入して厳密に管理する。&#xA;さらにProcessCodeは桁数に基づき分割し、各セグメントを個別解析で正確に識別し実装済とする。1" DisplayName="PhaseCodesを代入" sap:VirtualizedContainerService.HintSize="548.6666666666666,1772" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="CSVファイルからPhaseCodes表を取得し、各レコードの値を読み込む。&#xA;取得したPhaseCodeは専用変数へ代入して厳密に管理する。&#xA;さらにProcessCodeは桁数に基づき分割し、各セグメントを個別解析で正確に識別し実装済とする。1" DisplayName="PhaseCodesを代入" sap:VirtualizedContainerService.HintSize="538,1148.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
-        <Variable x:TypeArguments="sd:DataTable" Name="dt_PhaseCodesOriginal" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt_GroupPhasesOriginal" />
         <Variable x:TypeArguments="x:Boolean" Name="IsMatch" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
@@ -167,7 +169,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_PhaseCodesOriginal]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;PhaseCodesPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="514.6666666666666,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
+      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_GroupPhasesOriginal]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;GroupPhasesPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="478.6666666666667,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -175,7 +177,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ReadCsvFile>
-      <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -221,12 +223,12 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:FilterDataTable DataTable="[dt_PhaseCodesOriginal]" DisplayName="process codes データ テーブルをフィルター" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="514.6666666666666,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_PhaseCodes]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable DataTable="[dt_GroupPhasesOriginal]" DisplayName="process codes データ テーブルをフィルター" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="478.6666666666667,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_GroupPhases]" SelectColumnsMode="Remove">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="x:String">["Type"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["GroupType"]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">[Type]</InArgument>
@@ -240,77 +242,46 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
-          <OutArgument x:TypeArguments="sd:DataColumn[]">[dt_PhaseCodes.PrimaryKey]</OutArgument>
+          <OutArgument x:TypeArguments="sd:DataColumn[]">[dt_GroupPhases.PrimaryKey]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="sd:DataColumn[]">[New DataColumn(){dt_PhaseCodes.Columns.Item("Code")}]</InArgument>
+          <InArgument x:TypeArguments="sd:DataColumn[]">[New DataColumn(){dt_GroupPhases.Columns.Item("PhaseCode")}]</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[dt_PhaseCodes.Rows.Find(CurrentPhaseCode) Is Nothing]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,616" sap2010:WorkflowViewState.IdRef="If_2">
-        <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,354.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="s:Exception">[myException]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:Exception" xml:space="preserve">[New Exception(String.Format("ProcessCode{3}エラー。 Type{2} PhaseCode {0} はPhase Codes に含まれていません。Type{2}のdt_PhaseCodes: {1}", CurrentPhaseCode, String.Join(",", _
-dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &amp; row.Field(Of Integer)("Code")).ToArray())))]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Object">[myException.Data("ErrorCode")]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Object">["#FFY9"]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-            <Throw DisplayName="スロー" Exception="[myException]" sap:VirtualizedContainerService.HintSize="478.6666666666667,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_9" />
-          </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Else" sap:VirtualizedContainerService.HintSize="512.6666666666666,121.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </Sequence>
-        </If.Else>
-      </If>
-      <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[CurrentPhaseName]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,108" sap2010:WorkflowViewState.IdRef="Assign_6">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:Int32">[LastPhaseCode]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:Int32">[CInt(dt_PhaseCodes.Rows(dt_PhaseCodes.Rows.Count-1)("Code"))]</InArgument>
-        </Assign.Value>
-      </Assign>
+      <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,201.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[CurrentPhaseName]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[CurrentGroupName]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("GroupName").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[LastPhaseCode]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">[CInt(dt_GroupPhases.Rows(dt_GroupPhases.Rows.Count-1)("PhaseCode"))]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="in_StatusCode:&#xA;0: Success&#xA;2: BusinessRuleException&#xA;3: SystemException&#xA;5: Reset&#xA;&#xA;out_StatusCode:&#xA;0:Success (NextPhase)&#xA;1:Success (Completed)&#xA;2:BusinessRuleException&#xA;3:SystemException (Retry)&#xA;4:SystemException (Failure)&#xA;5:Reset Failre to New&#xA;6:No Reset" DisplayName="StatusCodeを更新" sap:VirtualizedContainerService.HintSize="548.6666666666666,9577.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="in_StatusCode:&#xA;0: Success&#xA;2: BusinessRuleException&#xA;3: SystemException&#xA;5: Reset&#xA;&#xA;out_StatusCode:&#xA;0:Success (NextPhase)&#xA;1:Success (Completed)&#xA;2:BusinessRuleException&#xA;3:SystemException (Retry)&#xA;4:SystemException (Failure)&#xA;5:Reset Failre to New&#xA;6:No Reset" DisplayName="StatusCodeを更新" sap:VirtualizedContainerService.HintSize="538,10398.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -451,15 +422,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
           </Sequence>
         </ui:IfElseIfV2.Then>
       </ui:IfElseIfV2>
-      <Switch x:TypeArguments="x:Int32" DisplayName="条件分岐 (switch)" Expression="[ResultStatusCode]" sap:VirtualizedContainerService.HintSize="504,5904" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <Switch x:TypeArguments="x:Int32" DisplayName="条件分岐 (switch)" Expression="[ResultStatusCode]" sap:VirtualizedContainerService.HintSize="504,6725.333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_2">
         <Switch.Default>
-          <Sequence DisplayName="既定" sap:VirtualizedContainerService.HintSize="502,720" sap2010:WorkflowViewState.IdRef="Sequence_48">
+          <Sequence DisplayName="既定" sap:VirtualizedContainerService.HintSize="502,837.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_48">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="468,660" sap2010:WorkflowViewState.IdRef="Sequence_58">
+            <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="468,777.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_58">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -492,10 +463,18 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
               </Assign>
               <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_73">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameSuccess").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_101">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameInProgress").ToString]</InArgument>
                 </Assign.Value>
               </Assign>
               <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_74">
@@ -503,20 +482,20 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                   <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode+1)("Name").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode+1)("PhaseName").ToString]</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>
           </Sequence>
         </Switch.Default>
-        <Sequence x:Key="1" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,837.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_51">
+        <Sequence x:Key="1" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,954.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_51">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,777.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_53">
+          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,894.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_53">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -549,7 +528,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_53">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameSuccess").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_107">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameSuccess").ToString]</InArgument>
@@ -560,7 +547,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                 <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_95">
@@ -573,13 +560,13 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
           </Sequence>
         </Sequence>
-        <Sequence x:Key="2" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,837.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_52">
+        <Sequence x:Key="2" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,954.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_52">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,777.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_54">
+          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,894.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_54">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -612,7 +599,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_58">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameBusinessException").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_106">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameBusinessException").ToString]</InArgument>
@@ -623,7 +618,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                 <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_96">
@@ -636,13 +631,13 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
           </Sequence>
         </Sequence>
-        <Sequence x:Key="3" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,837.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_55">
+        <Sequence x:Key="3" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,954.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_55">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,777.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_56">
+          <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="468,894.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_56">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -675,7 +670,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_63">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_105">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
@@ -686,7 +689,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                 <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_97">
@@ -699,7 +702,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign>
           </Sequence>
         </Sequence>
-        <Sequence x:Key="4" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,754.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_57">
+        <Sequence x:Key="4" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,872" sap2010:WorkflowViewState.IdRef="Sequence_57">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -731,7 +734,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_68">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_104">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameFailed").ToString]</InArgument>
@@ -742,7 +753,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
               <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,108" sap2010:WorkflowViewState.IdRef="Assign_98">
@@ -754,7 +765,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign.Value>
           </Assign>
         </Sequence>
-        <Sequence x:Key="5" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,754.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_71">
+        <Sequence x:Key="5" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,872" sap2010:WorkflowViewState.IdRef="Sequence_71">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -786,7 +797,15 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_87">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameReset").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_103">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[Config("Csv")("StatusNameReset").ToString]</InArgument>
@@ -797,7 +816,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
               <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[dt_PhaseCodes.Rows.Find(CurrentPhaseCode)("Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[dt_GroupPhases.Rows.Find(CurrentPhaseCode)("PhaseName").ToString]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,108" sap2010:WorkflowViewState.IdRef="Assign_99">
@@ -809,7 +828,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </Assign.Value>
           </Assign>
         </Sequence>
-        <Sequence x:Key="6" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,754.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_79">
+        <Sequence x:Key="6" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,872" sap2010:WorkflowViewState.IdRef="Sequence_79">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -841,7 +860,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
           </Assign>
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_92">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[NextStatusName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[NextPhaseStatusName]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
@@ -850,6 +869,14 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
           <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_93">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[NextPhaseName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[CurrentPhaseName]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_102">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[NextGroupStatusName]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[CurrentPhaseName]</InArgument>
@@ -890,7 +917,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                       <OutArgument x:TypeArguments="x:String">[CsvQueueDetail]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2} {3}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextStatusName,SystemException.Message.Replace(vbCrLf," "))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2} {3}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextPhaseStatusName,SystemException.Message.Replace(vbCrLf," "))]</InArgument>
                     </Assign.Value>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -914,7 +941,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                       <OutArgument x:TypeArguments="x:String">[CsvQueueDetail]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2} {3}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextStatusName,BusinessException.Message.Replace(vbCrLf," "))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2} {3}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextPhaseStatusName,BusinessException.Message.Replace(vbCrLf," "))]</InArgument>
                     </Assign.Value>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -939,7 +966,7 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                 <OutArgument x:TypeArguments="x:String">[CsvQueueDetail]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextStatusName)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[String.Format("[{0} {1} {2}]",Now.ToString("yyyy/MM/dd HH:mm"),CurrentPhaseName,NextPhaseStatusName)]</InArgument>
               </Assign.Value>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1016,14 +1043,6 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
                 <InArgument x:TypeArguments="x:Object">[String.Format("{0}{1}{2}{3}",Type,NextStatusCode,NextPhaseCode,NextRetryCount)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColPhaseName").ToString)]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:Object">[NextPhaseName]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColRetryNo").ToString)]</OutArgument>
@@ -1034,10 +1053,18 @@ dt_PhaseCodes.AsEnumerable().Select(Function(row) row.Field(Of String)("Type") &
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
               <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColProcessGroupName").ToString)]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[CurrentGroupName]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+              <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:Object">[dr_CsvTransactionItem(Config("Csv")("ColStatus").ToString)]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:Object">[NextStatusName]</InArgument>
+                <InArgument x:TypeArguments="x:Object">[NextGroupStatusName]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>

@@ -686,7 +686,7 @@
                         <OutArgument x:TypeArguments="x:String" x:Key="ProcessCode">[ProcessCode]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <TryCatch DisplayName="トライ キャッチ" sap:VirtualizedContainerService.HintSize="550.6666666666666,3216.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                    <TryCatch DisplayName="トライ キャッチ" sap:VirtualizedContainerService.HintSize="550.6666666666666,3354" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -694,7 +694,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <Sequence DisplayName="例外が発生しうる処理 (try)" sap:VirtualizedContainerService.HintSize="548.6666666666666,2577.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                        <Sequence DisplayName="例外が発生しうる処理 (try)" sap:VirtualizedContainerService.HintSize="548.6666666666666,2714.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_95">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -706,7 +706,7 @@
                               <InArgument x:TypeArguments="x:String" x:Key="CurrentPhaseName">[ProcessPhaseName]</InArgument>
                             </ui:AddLogFields.Fields>
                           </ui:AddLogFields>
-                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ProcessType + ProcessPhaseCode]" sap:VirtualizedContainerService.HintSize="514.6666666666666,2216" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ProcessType + ProcessPhaseCode]" sap:VirtualizedContainerService.HintSize="514.6666666666666,2353.3333333333335" sap2010:WorkflowViewState.IdRef="Switch`1_4">
                             <Switch.Default>
                               <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="512.6666666666666,354.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_114">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -745,18 +745,24 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence x:Key="A0" DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.6666666666666,173.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                            <Sequence x:Key="A0" DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.6666666666666,310.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_104">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="478.6666666666667,113.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_107">
+                              <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="478.6666666666667,250.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_107">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process1Error - ワークフロー ファイルを呼び出し (99_Tests\CsvFlowchart\Process1Error.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_86" UnSafe="False" WorkflowFileName="99_Tests\CsvFlowchart\ProcessDummyError.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InArgument>
+                                    <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Boolean)" x:Key="TestCases">[TestCases]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
                               </Sequence>
                             </Sequence>
                             <Sequence x:Key="A1" DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.6666666666666,173.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_105">
@@ -939,7 +945,7 @@
                       <av:Size x:Key="ShapeSize">110,70</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap2010:Annotation.AnnotationText="Queueの全件処理後、残っていたら処理を延期し、なければ処理を終了して使用した全アプリケーションを閉じます。&#xA;" DisplayName="Finally" sap:VirtualizedContainerService.HintSize="584.6666666666666,2385.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence sap2010:Annotation.AnnotationText="Queueの全件処理後、残っていたら処理を延期し、なければ処理を終了して使用した全アプリケーションを閉じます。&#xA;" DisplayName="Finally" sap:VirtualizedContainerService.HintSize="584.6666666666666,3134.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -947,7 +953,7 @@
                         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[dt_Queue.Rows.Count  = 0]" sap:VirtualizedContainerService.HintSize="550.6666666666666,2325.3333333333335" sap2010:WorkflowViewState.IdRef="If_17">
+                    <If Condition="[dt_Queue.Rows.Count  = 0]" sap:VirtualizedContainerService.HintSize="550.6666666666666,3074.6666666666665" sap2010:WorkflowViewState.IdRef="If_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -955,7 +961,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="548.6666666666666,2087.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="548.6666666666666,2836.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_20">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1018,7 +1024,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:FilterDataTable>
-                          <ui:IfElseIfV2 Condition="[dt_Dequeue.Select(String.Format(&quot;[{0}] = '{1}'&quot;,Config(&quot;Csv&quot;)(&quot;ColStatus&quot;),Config(&quot;Csv&quot;)(&quot;StatusNameBusinessException&quot;))).Length &gt; 0]" DisplayName="条件分岐 (else if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,1265.3333333333333" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                          <ui:IfElseIfV2 Condition="[dt_Dequeue.Select(String.Format(&quot;[{0}] = '{1}'&quot;,Config(&quot;Csv&quot;)(&quot;ColStatus&quot;),Config(&quot;Csv&quot;)(&quot;StatusNameBusinessException&quot;))).Length &gt; 0]" DisplayName="条件分岐 (else if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,2014.6666666666667" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
                             <ui:IfElseIfV2.Else>
                               <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512.6666666666666,376" sap2010:WorkflowViewState.IdRef="Sequence_118">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -1051,7 +1057,72 @@
                               </Sequence>
                             </ui:IfElseIfV2.Else>
                             <ui:IfElseIfV2.ElseIfs>
-                              <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True" />
+                              <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                <ui:IfElseIfBlock BlockType="ElseIf" Condition="[dt_Dequeue.Select(String.Format(&quot;[{0}] = '{1}'&quot;,Config(&quot;Csv&quot;)(&quot;ColStatus&quot;),Config(&quot;Csv&quot;)(&quot;StatusNameFailed&quot;))).Length &gt; 0]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                                  <ui:IfElseIfBlock.Then>
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.6666666666666,710.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_131">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap2010:Annotation.AnnotationText="" DisplayName="ビジネス例外あり" sap:VirtualizedContainerService.HintSize="478.6666666666667,148" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[MailNo]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">900</InArgument>
+                                        </Assign.Value>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Assign>
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OutlookSendMailByO365 - ワークフロー ファイルを呼び出し (Framework\OutlookSendMailByO365.xaml)" sap:VirtualizedContainerService.HintSize="478.6666666666667,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_87" UnSafe="False" WorkflowFileName="Framework\OutlookSendMailByO365.xaml">
+                                        <ui:InvokeWorkflowFile.Arguments>
+                                          <InArgument x:TypeArguments="s:Exception" x:Key="SystemException">[SystemException]</InArgument>
+                                          <InArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Boolean)" x:Key="TestCases">[TestCases]</InArgument>
+                                          <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="BusinessException">[BusinessException]</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="MailNo">[MailNo]</InArgument>
+                                        </ui:InvokeWorkflowFile.Arguments>
+                                      </ui:InvokeWorkflowFile>
+                                      <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,210.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_26">
+                                        <ui:MultipleAssign.AssignOperations>
+                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_113">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[ErrorCode]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">#MYYC</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_114">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="ui:BusinessRuleException">[New BusinessRuleException("CsvFlowchart全体エラー / システム例外 " + ErrorCode)]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_115">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:Object">[BusinessException.Data("ErrorCode")]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:Object">[ErrorCode]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                          </scg:List>
+                                        </ui:MultipleAssign.AssignOperations>
+                                      </ui:MultipleAssign>
+                                      <Throw DisplayName="スロー" Exception="[SystemException]" sap:VirtualizedContainerService.HintSize="478.6666666666667,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_22" />
+                                    </Sequence>
+                                  </ui:IfElseIfBlock.Then>
+                                </ui:IfElseIfBlock>
+                              </sc:BindingList>
                             </ui:IfElseIfV2.ElseIfs>
                             <ui:IfElseIfV2.Then>
                               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,710.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_117">

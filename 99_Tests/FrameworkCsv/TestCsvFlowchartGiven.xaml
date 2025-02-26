@@ -201,7 +201,7 @@
       </ui:MultipleAssign>
       <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,108" sap2010:WorkflowViewState.IdRef="Assign_28">
         <Assign.To>
-          <OutArgument x:TypeArguments="njl:JToken">[Config("Csv")("PhaseCodesPath")]</OutArgument>
+          <OutArgument x:TypeArguments="njl:JToken">[Config("Csv")("GroupPhasesPath")]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="njl:JToken">[Path.Combine(TestDataInputDir,"SettingsPhaseCodes.csv")]</InArgument>

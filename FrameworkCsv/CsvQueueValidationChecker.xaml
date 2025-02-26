@@ -105,13 +105,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ReadCsv" sap:VirtualizedContainerService.HintSize="1412,1366" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ReadCsv" sap:VirtualizedContainerService.HintSize="1440.6666666666667,1292" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="582.6666666666666,1343.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="582.6666666666666,1269.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_Queue" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_Dequeue" />
@@ -124,7 +124,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_Queue]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="CSV を読み込み" FilePath="[Config(&quot;Csv&quot;)(&quot;QueuePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="548.6666666666666,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-      <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="548.6666666666666,102.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="450,1226.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -136,10 +136,10 @@
         <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColStatus&quot;).ToString]" List="[ColNames]" />
         <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_3" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColDetail&quot;).ToString]" List="[ColNames]" />
         <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_4" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColRetryNo&quot;).ToString]" List="[ColNames]" />
-        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_5" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColPhaseName&quot;).ToString]" List="[ColNames]" />
-        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,157.33333333333334" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_6" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColProcessCode&quot;).ToString]" List="[ColNames]" />
+        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_5" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColProcessGroupName&quot;).ToString]" List="[ColNames]" />
+        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="リストに項目を追加" sap:VirtualizedContainerService.HintSize="416,158.66666666666666" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_6" ItemToAppend="[Config(&quot;Csv&quot;)(&quot;ColProcessCode&quot;).ToString]" List="[ColNames]" />
       </Sequence>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="繰り返し (コレクションの各要素) ColName" sap:VirtualizedContainerService.HintSize="548.6666666666666,86" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ColNames]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="繰り返し (コレクションの各要素) ColName" sap:VirtualizedContainerService.HintSize="548.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ColNames]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>

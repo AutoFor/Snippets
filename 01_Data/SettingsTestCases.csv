@@ -1,5 +1,7 @@
-TestCaseNo,EnvironmentNo,TestCaseDescription,SaveMailDraft,SkipTransfer,InitError
-0,0,正常,,,
-1,0,メールを下書き保存する,true,,
-2,0,振込をせずにMessageBoxを出す,,true,
-900,0,初期設定エラー,true,,true
+TestCaseNo,EnvironmentNo,TestCaseDescription,SaveMailDraft,SkipTransfer,InitError,ProcessOneTimeError,ProcessAllError
+0,0,正常,,,,,
+1,0,メールを下書き保存する,true,,,,
+2,0,振込をせずにMessageBoxを出す,,true,,,
+900,0,初期設定エラー,true,,true,,
+901,0,処理中に1度だけシステムエラー。リカバリ検証用。,true,,,true,
+902,0,処理中に何度もシステムエラー。リカバリ検証用。,true,,,,true

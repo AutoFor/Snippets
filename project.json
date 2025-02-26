@@ -105,13 +105,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "8aff95b4-8eb9-43ba-ba7c-f11ad477aa74",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "99_Tests\\FrameworkCsv\\TestCsvSetTransactionStatus_10_ErrorResultCode.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "3f2e3cf2-4d82-457b-941d-91151a9d56e6",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -158,6 +151,20 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "99_Tests\\Framework\\TestCaseGenerator_EnvironmentNoが空白の場合.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "56e19d2f-a3cb-4418-8dca-be2f9b831678",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_901_一度だけシステムエラーになる.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "f3b75445-efb2-4a6f-9944-6b5c1eadb9e8",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "99_Tests\\CsvFlowchart\\TestCsvFlowchart_902_リトライ超過した場合.xaml"
       }
     ],
     "saveToCloud": false

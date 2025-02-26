@@ -4,7 +4,7 @@ MailNo,Condition,MailTo,MailCc,MailSubject,MailBody
 
 ▼Dequeue
 {{DequeuePath}}{{st_Dequeue}}"
-800,全体ビジネスエラー,{{UserMailAddress}},{{AdminMailAddress}},ビジネス例外,"ご担当者様
+800,Queueビジネスエラー,{{UserMailAddress}},{{AdminMailAddress}},ビジネス例外,"ご担当者様
 ▼Queue
 {{QueuePath}}{{st_Queue}}
 ▼Dequeue
@@ -29,3 +29,7 @@ MailNo,Condition,MailTo,MailCc,MailSubject,MailBody
 
 ▼エラーソース
 {{SystemException.Message}}"
+900,Queue システムエラー,{{UserMailAddress}},{{AdminMailAddress}},処理失敗,"ご担当者様
+
+▼Dequeue
+{{DequeuePath}}{{st_Dequeue}}"

@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TestCsvResetTransactionStatus" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="TestCsvResetTransactionStatus_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -104,7 +103,7 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCsvResetTransactionStatus" sap:VirtualizedContainerService.HintSize="1470,1097.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCsvResetTransactionStatus" sap:VirtualizedContainerService.HintSize="1412,1097.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataRow" Name="dr_CsvTransactionItem" />
       <Variable x:TypeArguments="x:Int32" Name="TestNo" />
@@ -151,15 +150,15 @@
       </ui:MultipleAssign>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="TestCsvSetTransactionStatusGiven - ワークフロー ファイルを呼び出し (Tests\FrameworkCsv\TestCsvSetTransactionStatusGiven.xaml)" sap:VirtualizedContainerService.HintSize="478.6666666666667,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="99_Tests\FrameworkCsv\TestCsvSetTransactionStatusGiven.xaml">
         <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="x:String" x:Key="TestDataOutputExcelPath">[TestDataOutputExcelPath]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="TestDataOutputDir">[TestDataOutputDir]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="TestDataDir">[TestDataDir]</InArgument>
+          <InOutArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InOutArgument>
           <OutArgument x:TypeArguments="sd:DataRow" x:Key="dr_CsvTransactionItem">[dr_CsvTransactionItem]</OutArgument>
           <OutArgument x:TypeArguments="ui:BusinessRuleException" x:Key="BusinessException" />
           <InArgument x:TypeArguments="x:Int32" x:Key="TestNo">[TestNo]</InArgument>
           <OutArgument x:TypeArguments="x:Boolean" x:Key="IsPostpone" />
           <OutArgument x:TypeArguments="s:Exception" x:Key="SystemException" />
-          <OutArgument x:TypeArguments="x:String" x:Key="TestDataOutputExcelPath">[TestDataOutputExcelPath]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="TestDataOutputDir">[TestDataOutputDir]</OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="TestDataDir">[TestDataDir]</InArgument>
-          <OutArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>

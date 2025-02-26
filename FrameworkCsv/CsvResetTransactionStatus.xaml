@@ -105,7 +105,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CsvResetTransactionStatus" sap:VirtualizedContainerService.HintSize="1470,3166.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CsvResetTransactionStatus" sap:VirtualizedContainerService.HintSize="1412,3204" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataRow" Name="dr_CsvTransactionItem" />
     </Sequence.Variables>
@@ -114,7 +114,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="618.6666666666666,3144" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="618.6666666666666,3181.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_Queue" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_Dequeue" />
@@ -149,7 +149,7 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:ReadCsvFile>
       </Sequence>
-      <Sequence sap2010:Annotation.AnnotationText="RetryNumber未満の場合、項目はQueueの先頭から末尾に移動し再試行が待たれます。&#xA;&#xA;RetryNumber超過時には、項目はQueueからDequeueに移動し、再処理は防がれ、エラートラッキングが可能となります。" DisplayName="[3or4] Failure" sap:VirtualizedContainerService.HintSize="584.6666666666666,2596" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="[3or4] Failure" sap:VirtualizedContainerService.HintSize="584.6666666666666,2633.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Int32" Name="OneIdx" />
           <Variable x:TypeArguments="x:Int32" Name="ZeroIdx" />
@@ -159,17 +159,9 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="550.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:Int32">[ResultStatusCode]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:Int32">5</InArgument>
-          </Assign.Value>
-        </Assign>
         <ui:MultipleAssign DisplayName="複数代入" sap:VirtualizedContainerService.HintSize="550.6666666666666,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -192,9 +184,9 @@
             </scg:List>
           </ui:MultipleAssign.AssignOperations>
         </ui:MultipleAssign>
-        <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="繰り返し (前判定)" sap:VirtualizedContainerService.HintSize="550.6666666666666,1744" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+        <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="繰り返し (前判定)" sap:VirtualizedContainerService.HintSize="550.6666666666666,1868" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
           <ui:InterruptibleWhile.Body>
-            <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="548.6666666666666,1612" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="548.6666666666666,1736" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -208,13 +200,18 @@
                   <InArgument x:TypeArguments="sd:DataRow">[dt_Dequeue.Rows(ZeroIdx)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign sap2010:Annotation.AnnotationText="(FrameworkCsv\CsvSetTransactionStatusCode.xaml)&#xD;&#xA;io = ResultStatusCodeは5の規定値" DisplayName="代入" sap:VirtualizedContainerService.HintSize="514.6666666666666,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[ResultStatusCode]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:Int32">5</InArgument>
                 </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </Assign>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CsvSetTransactionStatusCode - ワークフロー ファイルを呼び出し (FrameworkCsv\CsvSetTransactionStatusCode.xaml)" sap:VirtualizedContainerService.HintSize="514.6666666666666,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FrameworkCsv\CsvSetTransactionStatusCode.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
@@ -225,7 +222,12 @@
                   <InArgument x:TypeArguments="njl:JObject" x:Key="Config">[Config]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <If Condition="[ResultStatusCode = 5]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,969.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+              <If sap2010:Annotation.AnnotationText="(FrameworkCsv\CsvSetTransactionStatusCode.xaml)&#xD;&#xA;in = ResultStatusCodeは5の規定値&#xD;&#xA;out = ResultStatusCodeが5のままの場合、リセット対象&#xD;&#xA;out = ResultStatusCodeが5ではない場合、リセット対象外" Condition="[ResultStatusCode = 5]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="514.6666666666666,1048" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,738.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
@@ -259,12 +261,8 @@
                       <InvokeMethod.TargetObject>
                         <InArgument x:TypeArguments="sd:DataRowCollection">[dt_Queue.Rows]</InArgument>
                       </InvokeMethod.TargetObject>
-                      <InArgument x:TypeArguments="sd:DataRow">
-                        <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="dr_NewRow" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:Int32">
-                        <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="InsertZeroIdx" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="sd:DataRow">[dr_NewRow]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32">[InsertZeroIdx]</InArgument>
                     </InvokeMethod>
                     <ui:RemoveDataRow Row="{x:Null}" DataTable="[dt_Dequeue]" DisplayName="データ行を削除" sap:VirtualizedContainerService.HintSize="478.6666666666667,223.33333333333334" sap2010:WorkflowViewState.IdRef="RemoveDataRow_1" RowIndex="[ZeroIdx]" />
                     <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="478.6666666666667,108" sap2010:WorkflowViewState.IdRef="Assign_4">
